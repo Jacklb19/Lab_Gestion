@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Gestión de Libros{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
+  
+  <!-- Navbar -->
+  <nav class="bg-blue-600 text-white p-4 flex justify-between items-center shadow-md">
+    <h1 class="text-xl font-semibold">📚 Admin Libros</h1>
+    <div class="space-x-4">
+         <a href="{% url 'inicio' %}" class="hover:underline">Inicio</a>
+      <a href="{% url 'lista_autores' %}" class="hover:underline">Autores</a>
+      <a href="{% url 'lista_libros' %}" class="hover:underline">Libros</a>
+      
+      <a href="/admin/" class="bg-white text-blue-600 px-3 py-1 rounded hover:bg-gray-200">Admin</a>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="flex-1 container mx-auto p-6">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 text-center p-3 text-sm">
+    Proyecto Taller Django — {{ request.user.username|default:"Invitado" }}
+  </footer>
+</body>
+</html>

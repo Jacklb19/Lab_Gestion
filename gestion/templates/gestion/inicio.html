@@ -1,0 +1,25 @@
+{% extends 'gestion/base.html' %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+
+<div class="min-h-[80vh] flex flex-col items-center justify-center text-center px-6">
+  <div class="bg-white shadow-xl rounded-2xl p-10 max-w-2xl w-full">
+    <h1 class="text-4xl font-bold text-blue-700 mb-6">Bienvenido al Sistema de Gestión de Libros</h1>
+    <p class="text-gray-600 mb-8 text-lg">
+      Administra tus autores y libros fácilmente desde este sistema desarrollado con Django.
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="{% url 'lista_autores' %}" 
+         class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all shadow-md">
+        Gestionar Autores
+      </a>
+      <a href="{% url 'lista_libros' %}" 
+         class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all shadow-md">
+        Gestionar Libros
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
