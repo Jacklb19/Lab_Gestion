@@ -1,0 +1,58 @@
+{% extends 'gestion/base.html' %}
+{% block title %}Autores (Funciones){% endblock %}
+{% block content %}
+
+<div class="min-h-[80vh] flex flex-col items-center justify-center px-4">
+  <div class="w-full max-w-5xl bg-white shadow-xl rounded-2xl p-8">
+
+    <!-- Encabezado -->
+    <div class="flex flex-col sm:flex-row justify-between items-center mb-8 space-y-4 sm:space-y-0">
+      <h2 class="text-3xl font-bold text-blue-700">Autores (Funciones)</h2>
+      <a href="{% url 'crear_autor_func' %}" 
+         class="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-blue-700 shadow-md transition-all">
+        + Agregar Autor
+      </a>
+    </div>
+
+    <!-- Tabla -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full border border-gray-200 rounded-lg overflow-hidden">
+        <thead class="bg-blue-50 text-blue-800">
+          <tr>
+            <th class="py-3 px-4 border-b text-left font-semibold">Nombre</th>
+            <th class="py-3 px-4 border-b text-left font-semibold">Correo</th>
+            <th class="py-3 px-4 border-b text-left font-semibold">Nacionalidad</th>
+            <th class="py-3 px-4 border-b text-center font-semibold">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for autor in autores %}
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="py-3 px-4 border-b">{{ autor.nombre }}</td>
+            <td class="py-3 px-4 border-b">{{ autor.correo }}</td>
+            <td class="py-3 px-4 border-b">{{ autor.nacionalidad }}</td>
+            <td class="py-3 px-4 border-b text-center">
+              <div class="flex justify-center space-x-4">
+                <a href="{% url 'actualizar_autor_func' autor.pk %}" 
+                   class="text-blue-600 hover:text-blue-800 font-medium transition">
+                  Editar
+                </a>
+                <a href="{% url 'eliminar_autor_func' autor.pk %}" 
+                   class="text-red-600 hover:text-red-800 font-medium transition">
+                  Eliminar
+                </a>
+              </div>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4" class="text-center py-6 text-gray-500">No hay autores registrados.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

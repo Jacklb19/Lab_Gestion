@@ -12,10 +12,14 @@
   <nav class="bg-blue-600 text-white p-4 flex justify-between items-center shadow-md">
     <h1 class="text-xl font-semibold">📚 Admin Libros</h1>
     <div class="space-x-4">
-         <a href="{% url 'inicio' %}" class="hover:underline">Inicio</a>
+      <a href="{% url 'inicio' %}" class="hover:underline">Inicio</a>
       <a href="{% url 'lista_autores' %}" class="hover:underline">Autores</a>
       <a href="{% url 'lista_libros' %}" class="hover:underline">Libros</a>
       
+      <!-- Botones de funciones (FBV) -->
+      <a href="{% url 'lista_autores_func' %}" class="hover:underline">Autores (Funciones)</a>
+      <a href="{% url 'lista_libros_func' %}" class="hover:underline">Libros (Funciones)</a>
+
       <a href="/admin/" class="bg-white text-blue-600 px-3 py-1 rounded hover:bg-gray-200">Admin</a>
     </div>
   </nav>
